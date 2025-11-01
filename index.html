@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRIYANSHI JAIN - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+            animation: fadeIn 1s ease-in;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+        }
+
+        .content {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .about p {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .skill-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            background: #f9f9f9;
+        }
+
+        .project-card:hover {
+            border-color: #667eea;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .project-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.4em;
+        }
+
+        .project-card p {
+            color: #666;
+        }
+
+        .contact {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            color: white;
+        }
+
+        .contact a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin: 0 15px;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 25px;
+            }
+            
+            .skills, .projects {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PRIYANSHI JAIN</h1>
+            <p>Web Developer | Designer | Problem Solver</p>
+        </header>
+
+        <div class="content">
+            <section class="section about">
+                <h2>About Me</h2>
+                <p>I’m Priyanshi Jain, a B.Tech student specializing in Industrial Internet of Things (IIOT) at VIPS College of Engineering, Delhi.
+I have a strong foundation in programming with C, C++, and Python, and I’m currently enhancing my problem-solving skills through Data Structures and Algorithms (DSA).
+Alongside this, I work on web development using HTML, CSS, and JavaScript to create functional and visually appealing web solutions.
+I’m passionate about combining technology and creativity to build innovative, real-world projects. </p>
+                <p>When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying a good cup of coffee.</p>
+            </section>
+
+            <section class="section">
+                <h2>Skills</h2>
+                <div class="skills">
+                    <div class="skill-card">
+                        <h3>Frontend Development</h3>
+                        <p>HTML, CSS, JavaScript, React</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Backend Development</h3>
+                        <p>Node.js, Python, Databases</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Design</h3>
+                        <p>UI/UX, Responsive Design</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Projects</h2>
+                <div class="projects">
+                    <div class="project-card">
+                        <h3>Project One</h3>
+                        <p>Developed a Python-based text summarizer that automatically condenses long paragraphs into concise summaries. The project uses the Sumy library with natural language processing techniques to extract key sentences and generate meaningful summaries.</p>
+                    </div>
+                    <div class="project-card">
+                        <h3>Project Two</h3>
+                        <p>SafeOpen is an innovative hardware-software project designed to enhance vehicle safety. The system uses sensors to detect approaching bikes or scooters when a car door is opening and automatically closes the door to prevent accidents. It also includes a mobile companion app with an override button for manual control.</p>
+                    </div>
+                    <div class="project-card">
+                        <h3>Project Three</h3>
+                        <p>Developed an IoT-enabled carbon monoxide (CO) gas monitoring system that detects dangerous levels of CO in the environment and sends real-time alerts. The project combines Arduino sensors with data visualization to provide actionable insights for safety.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section contact">
+                <h2 style="color: white; border: none;">Get In Touch</h2>
+                <p style="margin: 20px 0;">I'd love to hear from you!</p>
+                <div>
+                    <a href="mailto:jpriyanshi035@gmail.com">Email</a>
+                    <a href="https://github.com/priyanshi-jain-hub" target="_blank">GitHub</a>
+                    <a href="https://linkedin.com/in/priyanshi-jain-48a603323" target="_blank">LinkedIn</a>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
