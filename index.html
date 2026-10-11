@@ -1,244 +1,475 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRIYANSHI JAIN - Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Priyanshi Jain | B.Tech IoT Student & Software Developer</title>
+<meta name="description" content="Resume of Priyanshi Jain: B.Tech IoT student, BEL software intern, machine learning, and three published patents.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0A1828;
+    --panel: #10253D;
+    --line: #1F3A58;
+    --text: #E4ECF5;
+    --muted: #93A8BF;
+    --signal: #6FE0EE;
+    --signal-dim: rgba(111, 224, 238, 0.14);
+    --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--text);
+    font-family: var(--body);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--signal); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  :focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; border-radius: 4px; }
+  h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0; }
+  ul { margin: 0; padding: 0; list-style: none; }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
+  /* ---------- Navigation ---------- */
+  .nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(10, 24, 40, 0.86);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 1080px; margin: 0 auto; padding: 14px 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .nav-name { font-family: var(--display); font-weight: 700; font-size: 1.15rem; color: var(--text); }
+  .nav-name:hover { text-decoration: none; }
+  .nav-links { display: flex; gap: 22px; flex-wrap: wrap; font-size: 0.95rem; }
+  .nav-links a { color: var(--muted); }
+  .nav-links a:hover { color: var(--text); text-decoration: none; }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 
-        header {
-            text-align: center;
-            padding: 60px 20px;
-            color: white;
-            animation: fadeIn 1s ease-in;
-        }
+  /* ---------- Hero ---------- */
+  .hero {
+    display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: center;
+    padding: 72px 0 64px;
+  }
+  .hero h1 { font-size: clamp(2.6rem, 6.4vw, 4.6rem); font-weight: 700; letter-spacing: -0.02em; }
+  .hero-role { margin: 18px 0 0; font-size: 1.25rem; color: var(--text); max-width: 30ch; }
+  .hero-sub { margin: 14px 0 0; color: var(--muted); max-width: 46ch; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+  .btn {
+    display: inline-block; padding: 11px 20px; border-radius: 8px;
+    font-weight: 600; font-size: 0.98rem;
+    border: 1px solid var(--line); color: var(--text);
+    transition: border-color .2s, background-color .2s, color .2s;
+  }
+  .btn:hover { text-decoration: none; border-color: var(--signal); }
+  .btn-primary { background: var(--signal); border-color: var(--signal); color: var(--ink); }
+  .btn-primary:hover { background: #A5EFF7; border-color: #A5EFF7; }
 
-        header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
+  .radar-box { position: relative; width: 100%; max-width: 460px; justify-self: end; }
+  #radar { display: block; width: 100%; aspect-ratio: 1; }
 
-        header p {
-            font-size: 1.3em;
-            opacity: 0.95;
-        }
+  /* ---------- Sections ---------- */
+  .section { padding: 56px 0; border-top: 1px solid var(--line); }
+  .section h2 { font-size: 1.9rem; margin-bottom: 28px; letter-spacing: -0.01em; }
+  .split { display: grid; grid-template-columns: 200px 1fr; gap: 32px; }
+  .when { color: var(--muted); font-size: 0.95rem; padding-top: 4px; }
 
-        .content {
-            background: white;
-            border-radius: 15px;
-            padding: 40px;
-            margin: 20px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            animation: slideUp 0.8s ease-out;
-        }
+  .item { padding-left: 22px; border-left: 2px solid var(--line); transition: border-color .25s; }
+  .item + .item { margin-top: 32px; }
+  .item:hover { border-left-color: var(--signal); }
+  .item h3 { font-size: 1.3rem; font-weight: 600; }
+  .item .org { color: var(--muted); margin: 4px 0 12px; font-size: 0.98rem; }
+  .item li { position: relative; padding-left: 18px; margin-top: 8px; max-width: 70ch; }
+  .item li::before {
+    content: ""; position: absolute; left: 0; top: 0.72em;
+    width: 7px; height: 7px; border-radius: 50%; background: var(--signal); opacity: .7;
+  }
+  .strong { color: #fff; font-weight: 600; }
 
-        .section {
-            margin-bottom: 40px;
-        }
+  .stack { display: grid; gap: 32px; }
+  .entry { display: grid; grid-template-columns: 200px 1fr; gap: 32px; }
 
-        .section h2 {
-            color: #667eea;
-            font-size: 2em;
-            margin-bottom: 20px;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 10px;
-        }
+  .school { font-size: 1.3rem; font-family: var(--display); font-weight: 600; }
+  .school-meta { margin-top: 6px; color: var(--muted); }
 
-        .about p {
-            font-size: 1.1em;
-            color: #555;
-            margin-bottom: 15px;
-        }
+  .patents li {
+    display: flex; justify-content: space-between; gap: 20px; align-items: baseline;
+    padding: 16px 0; border-bottom: 1px solid var(--line);
+  }
+  .patents li:first-child { padding-top: 0; }
+  .patents .p-title { font-weight: 500; max-width: 56ch; }
+  .patents .p-no { color: var(--muted); font-size: 0.92rem; white-space: nowrap; }
+  .pill {
+    display: inline-block; margin-left: 10px; padding: 2px 10px; border-radius: 999px;
+    background: var(--signal-dim); color: var(--signal); font-size: 0.8rem; font-weight: 600;
+    vertical-align: 2px;
+  }
 
-        .skills {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
+  .skills { display: grid; gap: 22px; }
+  .skills dt { font-weight: 600; margin-bottom: 8px; }
+  .skills dd { margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    padding: 5px 13px; border-radius: 999px; font-size: 0.93rem;
+    background: var(--panel); border: 1px solid var(--line);
+  }
 
-        .skill-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 25px;
-            border-radius: 10px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .two-col h3 { font-size: 1.2rem; margin-bottom: 14px; }
+  .plain li { padding: 9px 0; border-bottom: 1px solid var(--line); }
+  .plain li:last-child { border-bottom: 0; }
 
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
-        }
+  .footer { border-top: 1px solid var(--line); padding: 40px 0 56px; color: var(--muted); }
+  .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
 
-        .skill-card h3 {
-            margin-bottom: 10px;
-            font-size: 1.3em;
-        }
+  /* ---------- Responsive ---------- */
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; gap: 36px; padding-top: 48px; }
+    .radar-box { justify-self: center; }
+    .split, .entry { grid-template-columns: 1fr; gap: 10px; }
+    .two-col { grid-template-columns: 1fr; gap: 32px; }
+    .patents li { flex-direction: column; gap: 4px; }
+    .nav-links { gap: 14px; font-size: 0.88rem; }
+  }
+  @media (max-width: 520px) {
+    .nav-name { display: none; }
+  }
 
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .project-card {
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            padding: 25px;
-            transition: all 0.3s ease;
-            background: #f9f9f9;
-        }
-
-        .project-card:hover {
-            border-color: #667eea;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
-        }
-
-        .project-card h3 {
-            color: #667eea;
-            margin-bottom: 10px;
-            font-size: 1.4em;
-        }
-
-        .project-card p {
-            color: #666;
-        }
-
-        .contact {
-            text-align: center;
-            padding: 30px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 10px;
-            color: white;
-        }
-
-        .contact a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.2em;
-            margin: 0 15px;
-            transition: opacity 0.3s ease;
-        }
-
-        .contact a:hover {
-            opacity: 0.8;
-            text-decoration: underline;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
-            }
-            
-            .content {
-                padding: 25px;
-            }
-            
-            .skills, .projects {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  /* ---------- Print: clean one-page resume ---------- */
+  @media print {
+    body { background: #fff; color: #000; font-size: 10.5pt; }
+    .nav, .radar-box, .hero-actions { display: none; }
+    a { color: #000; }
+    .hero { display: block; padding: 0 0 12px; }
+    .section { padding: 14px 0; border-color: #bbb; }
+    .item, .chip { border-color: #999; background: none; }
+    .item .org, .hero-sub, .when, .school-meta, .patents .p-no { color: #333; }
+    .strong { color: #000; }
+    .pill { border: 1px solid #333; background: none; color: #000; }
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>PRIYANSHI JAIN</h1>
-            <p>Web Developer | Designer | Problem Solver</p>
-        </header>
 
-        <div class="content">
-            <section class="section about">
-                <h2>About Me</h2>
-                <p>I’m Priyanshi Jain, a B.Tech student specializing in Industrial Internet of Things (IIOT) at VIPS College of Engineering, Delhi.
-I have a strong foundation in programming with C, C++, and Python, and I’m currently enhancing my problem-solving skills through Data Structures and Algorithms (DSA).
-Alongside this, I work on web development using HTML, CSS, and JavaScript to create functional and visually appealing web solutions.
-I’m passionate about combining technology and creativity to build innovative, real-world projects. </p>
-                <p>When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying a good cup of coffee.</p>
-            </section>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="nav-name" href="#top">Priyanshi Jain</a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#patents">Patents</a>
+      <a href="#skills">Skills</a>
+      <a href="#highlights">Highlights</a>
+    </nav>
+  </div>
+</header>
 
-            <section class="section">
-                <h2>Skills</h2>
-                <div class="skills">
-                    <div class="skill-card">
-                        <h3>Frontend Development</h3>
-                        <p>HTML, CSS, JavaScript, React</p>
-                    </div>
-                    <div class="skill-card">
-                        <h3>Backend Development</h3>
-                        <p>Node.js, Python, Databases</p>
-                    </div>
-                    <div class="skill-card">
-                        <h3>Design</h3>
-                        <p>UI/UX, Responsive Design</p>
-                    </div>
-                </div>
-            </section>
+<main id="top" class="wrap">
 
-            <section class="section">
-                <h2>Projects</h2>
-                <div class="projects">
-                    <div class="project-card">
-                        <h3>Project One</h3>
-                        <p>Developed a Python-based text summarizer that automatically condenses long paragraphs into concise summaries. The project uses the Sumy library with natural language processing techniques to extract key sentences and generate meaningful summaries.</p>
-                    </div>
-                    <div class="project-card">
-                        <h3>Project Two</h3>
-                        <p>SafeOpen is an innovative hardware-software project designed to enhance vehicle safety. The system uses sensors to detect approaching bikes or scooters when a car door is opening and automatically closes the door to prevent accidents. It also includes a mobile companion app with an override button for manual control.</p>
-                    </div>
-                    <div class="project-card">
-                        <h3>Project Three</h3>
-                        <p>Developed an IoT-enabled carbon monoxide (CO) gas monitoring system that detects dangerous levels of CO in the environment and sends real-time alerts. The project combines Arduino sensors with data visualization to provide actionable insights for safety.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section contact">
-                <h2 style="color: white; border: none;">Get In Touch</h2>
-                <p style="margin: 20px 0;">I'd love to hear from you!</p>
-                <div>
-                    <a href="mailto:jpriyanshi035@gmail.com">Email</a>
-                    <a href="https://github.com/priyanshi-jain-hub" target="_blank">GitHub</a>
-                    <a href="https://linkedin.com/in/priyanshi-jain-48a603323" target="_blank">LinkedIn</a>
-                </div>
-            </section>
-        </div>
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="name">
+    <div>
+      <h1 id="name">Priyanshi Jain</h1>
+      <p class="hero-role">B.Tech IoT student and software developer.</p>
+      <p class="hero-sub">
+        I build software that reads signals: radar data at Bharat Electronics Limited,
+        traffic patterns with machine learning, and road-safety devices that I have patented.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="Priyanshi_Jain_Resume_Zscaler.pdf" download>Download resume (PDF)</a>
+        <a class="btn" href="https://www.linkedin.com/in/priyanshi-jain-48a603323" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="mailto:jpriyanshi035@gmail.com">Email me</a>
+      </div>
     </div>
+
+    <div class="radar-box">
+      <canvas id="radar" role="img"
+        aria-label="Radar display with markers for 3 published patents, CGPA 9.50, Rank 1 in department, 92.8 percent model accuracy, 48,000 plus records, and a BEL internship."></canvas>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="section" id="education" aria-labelledby="h-edu">
+    <h2 id="h-edu">Education</h2>
+    <div class="entry">
+      <div class="when">2024 – 2028</div>
+      <div>
+        <div class="school">Vivekananda Institute of Professional Studies (VIPS), Delhi</div>
+        <div class="school-meta">B.Tech in Internet of Things (IoT)</div>
+        <ul class="plain" style="margin-top:12px;">
+          <li><span class="strong">CGPA 9.50 / 10</span>, Rank 1 in Department</li>
+          <li>Member, Machine Learning Club</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="section" id="experience" aria-labelledby="h-exp">
+    <h2 id="h-exp">Experience</h2>
+    <div class="entry">
+      <div class="when">15 Jun – 31 Jul 2026</div>
+      <article class="item">
+        <h3>Software Intern, Bharat Electronics Limited (BEL)</h3>
+        <p class="org">Ghaziabad. Government of India (Ministry of Defence) Enterprise</p>
+        <ul>
+          <li>Built <span class="strong">Radar ADS-B Data Decoding Software</span> to decode and process aircraft ADS-B (Automatic Dependent Surveillance–Broadcast) data for radar systems.</li>
+          <li>Parsed structured binary and hex message data into meaningful fields for downstream radar use.</li>
+          <li>Rated <span class="strong">“Good”</span> in the official internship certificate issued by the HRD Department.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section" id="projects" aria-labelledby="h-proj">
+    <h2 id="h-proj">Projects</h2>
+    <div class="stack">
+
+      <div class="entry">
+        <div class="when">June 2026</div>
+        <article class="item">
+          <h3>AI-Based Traffic Density Prediction</h3>
+          <p class="org">Python, Pandas, Scikit-learn, Matplotlib, Seaborn</p>
+          <ul>
+            <li>Built a machine learning pipeline that classifies traffic congestion from weather and time features across <span class="strong">48,000+ records</span>.</li>
+            <li>Covered data cleaning, feature engineering, exploratory analysis, and model evaluation.</li>
+            <li>Random Forest classifier reached <span class="strong">92.8% accuracy</span>. Full project and visual analytics are on GitHub.</li>
+          </ul>
+          <!-- Add your repo link here:
+          <p style="margin-top:12px;"><a href="https://github.com/YOUR-USERNAME/YOUR-REPO">View on GitHub</a></p> -->
+        </article>
+      </div>
+
+      <div class="entry">
+        <div class="when">November 2025</div>
+        <article class="item">
+          <h3>SafeOpen: Vehicle Door Safety System</h3>
+          <p class="org">IoT, sensing, automated control</p>
+          <ul>
+            <li>Designed a system that prevents unsafe door opening when two-wheelers are approaching, to reduce dooring accidents.</li>
+            <li>Patent published (Application No. 202611023739 A).</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="entry">
+        <div class="when">July 2025</div>
+        <article class="item">
+          <h3>IIoT-Based CO Gas Monitoring System</h3>
+          <p class="org">Arduino, embedded systems</p>
+          <ul>
+            <li>Developed an Arduino-based system for real-time carbon monoxide detection with automated alerts.</li>
+          </ul>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Patents -->
+  <section class="section" id="patents" aria-labelledby="h-pat">
+    <h2 id="h-pat">Patents</h2>
+    <ul class="patents">
+      <li>
+        <span class="p-title">SafeOpen: Vehicle Door Safety and Controlled Exit Assistance System <span class="pill">Published</span></span>
+        <span class="p-no">App. No. 202611023739 A</span>
+      </li>
+      <li>
+        <span class="p-title">Self-Charging Safety Smartwatch with Dual Energy Harvesting and Emergency Power Reserve <span class="pill">Published</span></span>
+        <span class="p-no">App. No. 202611059891</span>
+      </li>
+      <li>
+        <span class="p-title">Adaptive Vision Assistance Device for Pedestrian Safety <span class="pill">Published</span></span>
+        <span class="p-no">App. No. 202611075737</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Skills -->
+  <section class="section" id="skills" aria-labelledby="h-skill">
+    <h2 id="h-skill">Technical skills</h2>
+    <dl class="skills">
+      <div>
+        <dt>Languages</dt>
+        <dd><span class="chip">Python</span><span class="chip">C</span><span class="chip">C++</span><span class="chip">Java</span></dd>
+      </div>
+      <div>
+        <dt>Libraries and tools</dt>
+        <dd>
+          <span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Scikit-learn</span>
+          <span class="chip">TensorFlow</span><span class="chip">Matplotlib</span><span class="chip">Seaborn</span>
+          <span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Google Colab</span><span class="chip">Arduino IDE</span>
+        </dd>
+      </div>
+      <div>
+        <dt>Domains</dt>
+        <dd>
+          <span class="chip">Machine Learning</span><span class="chip">Cyber Security (training)</span><span class="chip">IoT</span>
+          <span class="chip">Embedded Systems</span><span class="chip">Intelligent Transportation Systems</span>
+        </dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- Highlights -->
+  <section class="section" id="highlights" aria-labelledby="h-high">
+    <h2 id="h-high">Achievements and certifications</h2>
+    <div class="two-col">
+      <div>
+        <h3>Achievements</h3>
+        <ul class="plain">
+          <li>Rank 1 in B.Tech IoT Department, CGPA 9.50</li>
+          <li>Top 15 among 1,500+ participants, Hackvriksh Hackathon</li>
+          <li>2nd Position, Microsoft’s Oblivion Ideathon</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Certifications and training</h3>
+        <ul class="plain">
+          <li>Artificial Intelligence and Cyber Security Training, IIT Roorkee</li>
+          <li>Artificial Intelligence Certification Program (2025)</li>
+          <li>Flutter App Development Program, VIPS</li>
+          <li>Internship Certificate, Bharat Electronics Limited (2026)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <span>Priyanshi Jain, Delhi, India</span>
+    <span>
+      <a href="mailto:jpriyanshi035@gmail.com">jpriyanshi035@gmail.com</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://www.linkedin.com/in/priyanshi-jain-48a603323" target="_blank" rel="noopener">LinkedIn</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+/* Radar hero: a sweep line lights up markers for key facts as it passes. */
+(function () {
+  var canvas = document.getElementById("radar");
+  var ctx = canvas.getContext("2d");
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var SIGNAL = "111,224,238";
+
+  // angle: degrees clockwise from top, r: fraction of radius
+  var blips = [
+    { a: 28,  r: 0.78, t: "3 published patents" },
+    { a: 84,  r: 0.50, t: "CGPA 9.50" },
+    { a: 122, r: 0.74, t: "92.8% model accuracy" },
+    { a: 202, r: 0.64, t: "48,000+ records" },
+    { a: 258, r: 0.80, t: "BEL software intern" },
+    { a: 304, r: 0.55, t: "Rank 1 in department" }
+  ];
+
+  var size = 0, dpr = 1;
+
+  function resize() {
+    var rect = canvas.getBoundingClientRect();
+    dpr = window.devicePixelRatio || 1;
+    size = rect.width;
+    canvas.width = Math.round(size * dpr);
+    canvas.height = Math.round(size * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (reduce) draw(0);
+  }
+
+  function rad(deg) { return (deg - 90) * Math.PI / 180; }
+
+  function draw(ms) {
+    var c = size / 2, R = c - 2;
+    var sweep = reduce ? 0 : (ms / 1000 * 40) % 360;   // 9 seconds per turn
+    ctx.clearRect(0, 0, size, size);
+
+    // Disc
+    var bg = ctx.createRadialGradient(c, c, 0, c, c, R);
+    bg.addColorStop(0, "rgba(" + SIGNAL + ",0.07)");
+    bg.addColorStop(1, "rgba(" + SIGNAL + ",0.02)");
+    ctx.fillStyle = bg;
+    ctx.beginPath(); ctx.arc(c, c, R, 0, Math.PI * 2); ctx.fill();
+
+    // Range rings
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "rgba(" + SIGNAL + ",0.2)";
+    [0.25, 0.5, 0.75, 1].forEach(function (f) {
+      ctx.beginPath(); ctx.arc(c, c, R * f, 0, Math.PI * 2); ctx.stroke();
+    });
+
+    // Bearing lines every 30 degrees, with short ticks on the rim
+    for (var d = 0; d < 360; d += 30) {
+      var x = Math.cos(rad(d)), y = Math.sin(rad(d));
+      ctx.strokeStyle = "rgba(" + SIGNAL + (d % 90 === 0 ? ",0.22)" : ",0.09)");
+      ctx.beginPath(); ctx.moveTo(c, c); ctx.lineTo(c + x * R, c + y * R); ctx.stroke();
+    }
+
+    // Sweep wedge
+    if (!reduce) {
+      var a0 = rad(sweep);
+      if (typeof ctx.createConicGradient === "function") {
+        var trail = 0.16;
+        var g = ctx.createConicGradient(a0 - trail * Math.PI * 2, c, c);
+        g.addColorStop(0, "rgba(" + SIGNAL + ",0)");
+        g.addColorStop(trail, "rgba(" + SIGNAL + ",0.34)");
+        g.addColorStop(Math.min(trail + 0.002, 1), "rgba(" + SIGNAL + ",0)");
+        g.addColorStop(1, "rgba(" + SIGNAL + ",0)");
+        ctx.fillStyle = g;
+        ctx.beginPath(); ctx.arc(c, c, R, 0, Math.PI * 2); ctx.fill();
+      }
+      ctx.strokeStyle = "rgba(" + SIGNAL + ",0.95)";
+      ctx.lineWidth = 1.6;
+      ctx.beginPath(); ctx.moveTo(c, c);
+      ctx.lineTo(c + Math.cos(a0) * R, c + Math.sin(a0) * R); ctx.stroke();
+    }
+
+    // Markers and labels
+    var fs = Math.max(11, Math.min(14, size / 30));
+    ctx.font = "500 " + fs + "px 'IBM Plex Sans', system-ui, sans-serif";
+    ctx.textBaseline = "middle";
+    blips.forEach(function (b) {
+      var bx = c + Math.cos(rad(b.a)) * R * b.r;
+      var by = c + Math.sin(rad(b.a)) * R * b.r;
+      var since = (sweep - b.a + 360) % 360;             // degrees since the sweep passed
+      var alpha = reduce ? 1 : 0.14 + 0.86 * Math.exp(-since / 95);
+
+      // ping ring right after the sweep hits
+      if (!reduce && since < 40) {
+        ctx.strokeStyle = "rgba(" + SIGNAL + "," + (0.55 * (1 - since / 40)) + ")";
+        ctx.lineWidth = 1.5;
+        ctx.beginPath(); ctx.arc(bx, by, 5 + since * 0.4, 0, Math.PI * 2); ctx.stroke();
+      }
+      ctx.fillStyle = "rgba(" + SIGNAL + "," + alpha + ")";
+      ctx.beginPath(); ctx.arc(bx, by, 4, 0, Math.PI * 2); ctx.fill();
+
+      ctx.fillStyle = "rgba(228,236,245," + alpha + ")";
+      if (bx > c) { ctx.textAlign = "right"; ctx.fillText(b.t, bx - 11, by); }
+      else        { ctx.textAlign = "left";  ctx.fillText(b.t, bx + 11, by); }
+    });
+
+    // Center point
+    ctx.fillStyle = "rgba(" + SIGNAL + ",1)";
+    ctx.beginPath(); ctx.arc(c, c, 3, 0, Math.PI * 2); ctx.fill();
+  }
+
+  function loop(ms) { draw(ms); requestAnimationFrame(loop); }
+
+  window.addEventListener("resize", resize);
+  resize();
+  if (!reduce) requestAnimationFrame(loop);
+})();
+</script>
 </body>
 </html>
